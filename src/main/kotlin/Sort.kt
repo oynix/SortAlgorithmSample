@@ -14,6 +14,7 @@ fun IntArray.localString(): String {
     return sb.toString()
 }
 
+// 冒泡排序
 fun bubble() {
     for (i in arr.indices) {
         for (j in 0 until (arr.size - i - 1)) {
@@ -27,6 +28,26 @@ fun bubble() {
     println(arr.localString())
 }
 
+// 选择排序
+fun select () {
+    var temp = 0
+    var pointer = 0
+    while (pointer < arr.size - 1) {
+        temp = arr[pointer]
+        for (i in pointer until arr.size) {
+            if (arr[i] < temp) {
+                temp = temp xor arr[i]
+                arr[i] = temp xor arr[i]
+                temp = temp xor arr[i]
+            }
+        }
+        arr[pointer++] = temp
+    }
+    println(arr.localString())
+}
+
 fun main() {
-    bubble()
+//    bubble()
+    println(arr.localString())
+    select()
 }
